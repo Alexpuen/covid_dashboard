@@ -2,104 +2,69 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 
 def create_layout(df, df_mapa):
-  """Crea el layout principal de la aplicación"""
-  try:
-      # Obtener valores únicos para los dropdowns
-      años_disponibles = sorted(df['AÑO'].unique())
-      departamentos = sorted(df['DEPARTAMENTO'].unique())
-
-      return html.Div([
-          # Header con estilo mejorado
-          html.Header([
-              html.H1("Dashboard COVID-19 Colombia", 
-                      className='dashboard-title text-center py-3')
-          ], className='header mb-4'),
-          
-          # Contenedor de filtros
+  return html.Div([
+      html.Div([
+          # Filtros
           html.Div([
               dbc.Row([
-                  # Dropdown de Departamento
                   dbc.Col([
-                      html.Label("Departamento:", className='mb-2'),
-                      dcc.Dropdown(
-                          id='department-dropdown',
+                      html.Label("Departamento:", className='filter-label'),
+                      dcc.Dropdown(id='department-dropdown',
                           options=[{'label': 'Todos', 'value': 'Todos'}] +
-                                  [{'label': dept, 'value': dept} for dept in departamentos],
+                                  [{'label': dept, 'value': dept} for dept in sorted(df['DEPARTAMENTO'].unique())],
                           value='Todos',
                           clearable=False
                       )
-                  ], width=6),
-                  
-                  # Dropdown de Año
+                  ], md=6),
                   dbc.Col([
-                      html.Label("Año:", className='mb-2'),
-                      dcc.Dropdown(
-                          id='year-dropdown',
+                      html.Label("Año:", className='filter-label'),
+                      dcc.Dropdown(id='year-dropdown',
                           options=[{'label': 'Todos', 'value': 'Todos'}] +
-                                  [{'label': str(año), 'value': año} for año in años_disponibles],
+                                  [{'label': str(año), 'value': año} for año in sorted(df['AÑO'].unique())],
                           value='Todos',
                           clearable=False
                       )
-                  ], width=6)
-              ], className='mb-4')
-          ], className='filters-container px-4'),
-          
-          # Contenedor de gráficas
-          html.Div([
-              # Primera fila: Mapa y Gráfico de Barras
-              dbc.Row([
-                  dbc.Col([
-                      dcc.Loading(
-                          id="loading-map",
-                          type="default",
-                          children=dcc.Graph(
-                              id='map-graph',
-                              style={'height': '500px'}
-                          )
-                      )
-                  ], width=6),
-                  
-                  dbc.Col([
-                      dcc.Loading(
-                          id="loading-bar",
-                          type="default",
-                          children=dcc.Graph(
-                              id='bar-graph',
-                              style={'height': '500px'}
-                          )
-                      )
-                  ], width=6)
-              ], className='mb-4'),
-              
-              # Segunda fila: Gráfico de Pie e Histograma
-              dbc.Row([
-                  dbc.Col([
-                      dcc.Loading(
-                          id="loading-pie",
-                          type="default",
-                          children=dcc.Graph(
-                              id='pie-graph',
-                              style={'height': '500px'}
-                          )
-                      )
-                  ], width=6),
-                  
-                  dbc.Col([
-                      dcc.Loading(
-                          id="loading-histogram",
-                          type="default",
-                          children=dcc.Graph(
-                              id='histogram-graph',
-                              style={'height': '500px'}
-                          )
-                      )
-                  ], width=6)
+                  ], md=6)
               ])
-          ], className='graphs-container px-4')
-      ])
-
-  except Exception as e:
-      print(f"Error creando layout: {str(e)}")
-      import traceback
-      print(traceback.format_exc())
-      return html.Div("Error al cargar el dashboard")
+          ], className='filters-container'),
+          
+          # Grid de gráficos
+          html.Div([
+              html.Div([
+                  html.H3("Casos por Departamento", className='graph-title'),
+                  html.Div([
+                      dcc.Graph(id='map-graph')
+                  ], className='plotly-graph-wrapper')
+              ], className='graph-container'),
+              
+              html.Div([
+                  html.H3("Top 5 Municipios", className='graph-title'),
+                  html.Div([
+                      dcc.Graph(id='bar-graph')
+                  ], className='plotly-graph-wrapper')
+              ], className='graph-container'),
+              
+              html.Div([
+                  html.H3("Distribución de Casos", className='graph-title'),
+                  html.Div([
+                      dcc.Graph(id='pie-graph')
+                  ], className='plotly-graph-wrapper')
+              ], className='graph-container'),
+              
+              html.Div([
+                  html.H3("Distribución por Edad", className='graph-title'),
+                  html.Div([
+                      dcc.Graph(id='histogram-graph')
+                  ], className='plotly-graph-wrapper')
+              ], className='graph-container'),
+          ], className='dashboard-grid'),
+          
+          html.Div([
+              html.H3("Total de Fallecimientos por Mes", className='graph-title'),
+              html.Div([
+                  dcc.Graph(id='line-graph')
+              ], className='plotly-graph-wrapper')
+          ], className='graph-container'),
+          
+      ], className='container-fluid')
+  ])

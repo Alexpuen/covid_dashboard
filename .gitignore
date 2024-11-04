@@ -1,0 +1,4 @@
+echo "~$*" >> .gitignore
+echo "*.tmp" >> .gitignore
+echo ".~*" >> .gitignore
+echo "*/~$*" >> .gitignore
