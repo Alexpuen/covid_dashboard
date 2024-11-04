@@ -1,0 +1,335 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "AMAZONAS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.9367, -1.4436]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "ANTIOQUIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.5741, 7.1986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "ARAUCA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.7591, 6.5474]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "ATLANTICO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.9741, 10.6966]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "BOGOTA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.0721, 4.7110]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "BOLIVAR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.4198, 8.6704]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "BOYACA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.9088, 5.4545]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CALDAS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.4917, 5.2983]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CAQUETA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.4157, 0.8699]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CASANARE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.5724, 5.7589]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CAUCA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.6147, 2.7048]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CESAR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.6548, 9.3373]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CHOCO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.8261, 5.2528]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CORDOBA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.8814, 8.7489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "CUNDINAMARCA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.0745, 5.0268]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "GUAINIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-67.9424, 2.5854]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "GUAVIARE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.8256, 2.0412]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "HUILA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.5277, 2.5359]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "LA GUAJIRA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.5147, 11.3548]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "MAGDALENA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.2111, 10.4113]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "META"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.0837, 3.2720]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "NARIÑO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.3687, 1.2892]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "NORTE DE SANTANDER"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.8986, 7.9463]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "PUTUMAYO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.6247, 0.4360]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "QUINDIO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.6687, 4.5389]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "RISARALDA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.9928, 5.3158]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "SAN ANDRES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-81.7062, 12.5847]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "SANTANDER"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.2607, 6.6437]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "SUCRE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.7233, 9.3048]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "TOLIMA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.2312, 4.0938]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "VALLE DEL CAUCA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.5225, 3.8009]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "VAUPES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.0375, 1.2537]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE_DPT": "VICHADA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-69.2874, 4.4234]
+      }
+    }
+  ]
+}
