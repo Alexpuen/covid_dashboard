@@ -1,16 +1,17 @@
 
 def normalizar_nombre_departamento(nombre):
   """
-  Normaliza los nombres de departamentos eliminando tildes y caracteres especiales.
+  Standardizes department names by applying consistent formatting and resolving naming variations.
   
   Args:
-      nombre (str): Nombre del departamento a normalizar
+      nombre (str): Raw department name input
   
   Returns:
-      str: Nombre del departamento normalizado
+      str: Standardized department name
   """
+
   try:
-      # Diccionario de normalización
+      # Reference mapping for official department names
       mapping = {
           'ARCHIPIÉLAGO DE SAN ANDRÉS, PROVIDENCIA Y SANTA CATALINA': 'SAN ANDRES',
           'BOGOTÁ, D.C.': 'BOGOTA',
@@ -30,7 +31,6 @@ def normalizar_nombre_departamento(nombre):
           'LA GUAJIRA': 'GUAJIRA'
       }
       
-      # Normalizar el nombre
       nombre_norm = mapping.get(nombre.upper(), nombre.upper())
       return nombre_norm
       

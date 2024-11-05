@@ -1,13 +1,14 @@
-# data_processing.py
 import pandas as pd
 import os
 from pathlib import Path
 
 def get_project_root():
+  """Resolves and returns the project's root directory path"""
   return Path(__file__).parent.parent
 
 def normalizar_nombre_departamento(nombre):
-  """Normaliza los nombres de departamentos"""
+  """Standardizes department names by resolving naming variations and inconsistencies"""
+
   nombre = str(nombre).upper().strip()
   correcciones = {
       'NARINO': 'NARIÑO',
@@ -21,7 +22,8 @@ def normalizar_nombre_departamento(nombre):
   return correcciones.get(nombre, nombre)
 
 def procesar_edad(edad):
-  """Procesa la edad eliminando el sufijo entre paréntesis"""
+ 
+  """Extracts and validates the numeric age value from complex string formats"""
   try:
       if pd.isna(edad):
           return None
@@ -31,29 +33,38 @@ def procesar_edad(edad):
       return None
 
 def load_data():
+  
+  """
+  Core data processing pipeline for COVID-19 dataset
+  
+  Handles data loading, cleaning, and transformation stages including:
+  - Date formatting and temporal feature extraction
+  - Geographic data standardization
+  - Age data processing
+  - Case counting aggregation
+  """
   try:
-      print("Cargando datos...")
+      print("Loading data...")
       root_dir = get_project_root()
-      print(f"Directorio raíz: {root_dir}")
+      print(f"Root directory: {root_dir}")
       
-      # Construir ruta al archivo Excel
       ruta_excel = os.path.join(root_dir, 'data', 'datos_covid.xlsx')
-      print(f"Buscando archivo en: {ruta_excel}")
+      print(f"Looking for file at: {ruta_excel}")
       
       if not os.path.exists(ruta_excel):
-          print(f"ERROR: El archivo no existe en {ruta_excel}")
+          print(f"ERROR: File not found at {ruta_excel}")
           return None, None
           
-      # Cargar datos
+      # Load dataset
       df = pd.read_excel(ruta_excel)
       print("Datos cargados exitosamente")
       
-      # Procesar datos
+      # Data transformation pipeline
       df['DEPARTAMENTO'] = df['DEPARTAMENTO'].apply(normalizar_nombre_departamento)
       df['CASOS'] = 1
       df['EDAD'] = df['EDAD FALLECIDO'].apply(procesar_edad)
       
-      # Procesar fechas
+      # Temporal features extraction
       for col in ['FECHA DEFUNCIÓN', 'FECHA REGISTRO']:
           if col in df.columns:
               df[col] = pd.to_datetime(df[col].astype(str).str.strip("'"), 
@@ -64,24 +75,30 @@ def load_data():
           df['AÑO'] = df['FECHA DEFUNCIÓN'].dt.year
           df['MES'] = df['FECHA DEFUNCIÓN'].dt.month
       
-      # Crear df_mapa
       df_mapa = crear_dataset_mapa(df)
       
-      print("Procesamiento de datos completado")
+      print("Processing pipeline completed")
       return df, df_mapa
       
   except Exception as e:
-      print(f"Error cargando datos: {str(e)}")
+      print(f"Pipeline execution failed: {str(e)}")
       import traceback
       print(traceback.format_exc())
       return None, None
 
 def crear_dataset_mapa(df):
+  
+  """
+  Generates geographical visualization dataset with department-level aggregations
+  and corresponding coordinate mappings for spatial representation
+  """
+
   try:
       df_mapa = df.groupby('DEPARTAMENTO', as_index=False).agg({
           'CASOS': 'sum'
       })
       
+      # Geographic coordinate reference system
       coordenadas = {
           'AMAZONAS': [0.0, -71.9],
           'ANTIOQUIA': [7.0, -75.5],
@@ -123,12 +140,17 @@ def crear_dataset_mapa(df):
       
       return df_mapa
   except Exception as e:
-      print(f"Error creando dataset del mapa: {str(e)}")
+      print(f"Geographic data processing failed: {str(e)}")
       return pd.DataFrame()
 
 def filtrar_datos(df, departamento=None, año=None):
   """
-  Filtra los datos según el departamento y año seleccionados
+  Applies conditional filtering to the dataset based on geographic and temporal parameters
+  
+  Parameters:
+      df: Primary DataFrame
+      departamento: Geographic filter criterion
+      año: Temporal filter criterion
   """
   try:
       df_filtrado = df.copy()
@@ -141,8 +163,8 @@ def filtrar_datos(df, departamento=None, año=None):
       
       return df_filtrado
   except Exception as e:
-      print(f"Error en filtrar_datos: {str(e)}")
+      print(f"Filter application failed: {str(e)}")
       return df
 
-# Asegurarse de que estas funciones estén disponibles para importar
+# Module exports
 __all__ = ['load_data', 'filtrar_datos', 'crear_dataset_mapa']

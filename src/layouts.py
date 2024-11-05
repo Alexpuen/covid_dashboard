@@ -2,9 +2,18 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 
 def create_layout(df, df_mapa):
+  """
+    Constructs the main dashboard layout with interactive components and visualization containers.
+  
+    Parameters:
+      df: Primary DataFrame containing COVID-19 data
+      df_mapa: DataFrame with geographical mapping data
+  """
+
+
   return html.Div([
 
-    # Header
+    # Navigation and Header Section
       html.Header([
           html.Div([
               html.H1("Dashboard COVID-19 Colombia", className='dashboard-title'),
@@ -19,7 +28,7 @@ def create_layout(df, df_mapa):
       ], className='dashboard-header'),
 
 
-
+      # Main Dashboard Container  
       html.Div([
           # Filtros
           html.Div([
@@ -45,7 +54,7 @@ def create_layout(df, df_mapa):
               ])
           ], className='filters-container'),
           
-          # Grid de gráficos
+          # Visualization Grid
           html.Div([
               html.Div([
                   html.H3("Casos por Departamento", className='graph-title'),
@@ -76,6 +85,7 @@ def create_layout(df, df_mapa):
               ], className='graph-container'),
           ], className='dashboard-grid'),
           
+          # Timeline Visualization
           html.Div([
               html.H3("Total de Fallecimientos por Mes", className='graph-title'),
               html.Div([
@@ -85,7 +95,7 @@ def create_layout(df, df_mapa):
           
       ], className='container-fluid'),
 
-            # Footer
+      # Attribution Footer
       html.Footer([
           html.Div([
               html.P([
