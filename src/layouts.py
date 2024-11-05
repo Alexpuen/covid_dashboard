@@ -3,6 +3,23 @@ import dash_bootstrap_components as dbc
 
 def create_layout(df, df_mapa):
   return html.Div([
+
+    # Header
+      html.Header([
+          html.Div([
+              html.H1("Dashboard COVID-19 Colombia", className='dashboard-title'),
+              html.Div([
+                  html.A("Mapa", href="#map-graph", className='nav-button'),
+                  html.A("Top Municipios", href="#bar-graph", className='nav-button'),
+                  html.A("Distribución", href="#pie-graph", className='nav-button'),
+                  html.A("Edades", href="#histogram-graph", className='nav-button'),
+                  html.A("Línea Temporal", href="#line-graph", className='nav-button'),
+              ], className='nav-buttons')
+          ], className='header-content')
+      ], className='dashboard-header'),
+
+
+
       html.Div([
           # Filtros
           html.Div([
@@ -66,5 +83,19 @@ def create_layout(df, df_mapa):
               ], className='plotly-graph-wrapper')
           ], className='graph-container'),
           
-      ], className='container-fluid')
+      ], className='container-fluid'),
+
+            # Footer
+      html.Footer([
+          html.Div([
+              html.P([
+                  "Creado por Alex Puentes",
+                  html.Br(),
+                  "Maestría en Inteligencia Artificial",
+                  html.Br(),
+                  "Universidad de La Salle"
+              ], className='footer-text'),
+              html.P("© 2024 Todos los derechos reservados", className='copyright')
+          ], className='footer-content')
+      ], className='dashboard-footer')
   ])
